@@ -20,3 +20,7 @@ function drawLine(x1, y1, x2, y2, cssColor) {
 	screenContext.lineTo(x2. y2);
 	screenContext.stroke();
 }
+
+function clearScreen(x, y, width, height) {
+	screenContext.clearRect(0, 0, width, height);
+}

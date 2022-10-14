@@ -48,3 +48,10 @@ screen.height = data.screen.height;
 screen.style.border = '1px solid black';
 // The appendChild() method appends a node (element) as the last child of an element.
 document.body.appendChild(screen);
+
+
+// Raycasting logic
+
+function rayCasting() {
+
+}
