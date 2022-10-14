@@ -39,3 +39,12 @@ data.screen.halfWidth = data.screen.width / 2;
 // incrementAngle = The value to increment for each ray in relation of the screen width
 data.rayCasting.incrementAngle = data.player.fov / data.screen.width;
 data.player.halfFov = data.player.fov / 2;
+
+
+// Canvas
+const screen = document.createElement('canvas');
+screen.width = data.screen.width;
+screen.height = data.screen.height;
+screen.style.border = '1px solid black';
+// The appendChild() method appends a node (element) as the last child of an element.
+document.body.appendChild(screen);
