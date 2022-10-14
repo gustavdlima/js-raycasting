@@ -32,3 +32,10 @@ let data = {
         [1,1,1,1,1,1,1,1,1,1],
     ]
 }
+
+// Calculated data
+data.screen.halfHeight = data.screen.height / 2;
+data.screen.halfWidth = data.screen.width / 2;
+// incrementAngle = The value to increment for each ray in relation of the screen width
+data.rayCasting.incrementAngle = data.player.fov / data.screen.width;
+data.player.halfFov = data.player.fov / 2;
