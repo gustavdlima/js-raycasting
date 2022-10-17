@@ -133,21 +133,21 @@ function rayCasting() {
       0,
       rayCount,
       data.screen.halfHeight - wallHeight,
-      "cyan"
+      "purple"
     );
     drawLine(
       rayCount,
       data.screen.halfHeight - wallHeight,
       rayCount,
       data.screen.halfHeight + wallHeight,
-      "red"
+      "black"
     );
     drawLine(
       rayCount,
       data.screen.halfHeight + wallHeight,
       rayCount,
       data.screen.height,
-      "green"
+      "grey"
     );
 
     // Increment;
@@ -160,3 +160,39 @@ function rayCasting() {
 function clearScreen() {
   screenContext.clearRect(0, 0, data.screen.width, data.screen.height);
 }
+
+document.addEventListener("keydown", (event) => {
+  let keyCode = event.code;
+
+  if (keyCode === data.key.up) {
+    let playerCos =
+      Math.cos(degreeToRadians(data.player.angle)) * data.player.speed.movement;
+    let playerSin =
+      Math.sin(degreeToRadians(data.player.angle)) * data.player.speed.movement;
+    let newX = data.player.x + playerCos;
+    let newY = data.player.y + playerSin;
+
+    // collision test
+    if (data.map[Math.floor(newY)][Math.floor(newX)] == 0) {
+      data.player.x = newX;
+      data.player.y = newY;
+    }
+  } else if (keyCode === data.key.down) {
+    let playerCos =
+      Math.cos(degreeToRadians(data.player.angle)) * data.player.speed.movement;
+    let playerSin =
+      Math.sin(degreeToRadians(data.player.angle)) * data.player.speed.movement;
+    let newX = data.player.x - playerCos;
+    let newY = data.player.y - playerSin;
+
+    // collision test
+    if (data.map[Math.floor(newY)][Math.floor(newX)] == 0) {
+      data.player.x = newX;
+      data.player.y = newY;
+    }
+  } else if (keyCode === data.key.left) {
+    data.player.angle -= data.player.speed.rotation;
+  } else if (keyCode === data.key.right) {
+    data.player.angle += data.player.speed.rotation;
+  }
+});
